@@ -226,7 +226,7 @@ if __name__ == "__main__":
             filename=filename, sample_format=fmt,
             threshold=threshold, signal_width=search_window,
             offline=offline, max_queue_len = max_queue_len,
-            verbose=verbose, dashboard=dashboard, host=host, port=port)
+            verbose=verbose)
 
     statistics_thread = threading.Thread(target=print_stats, args=(tb,))
     statistics_thread.setDaemon(True)
