@@ -94,8 +94,10 @@ def print_stats(tb):
         stats += " | ok: %3d/s" % ok_rate
         stats += " | ok_avg: %3d%%" % (ok_ratio_total * 100)
         stats += " | ok: %10d" % ok_count_total
+        stats += " | omin: %d" % out_count
         stats += " | ok_avg: %3d/s" % ok_rate_avg
         stats += " | d: %d" % drop_count_total
+        stats += " | dmin: %d" % drop_count
         print >> sys.stderr, stats
 
         if dashboard == True:
@@ -224,7 +226,7 @@ if __name__ == "__main__":
             filename=filename, sample_format=fmt,
             threshold=threshold, signal_width=search_window,
             offline=offline, max_queue_len = max_queue_len,
-            verbose=verbose)
+            verbose=verbose, dashboard=dashboard, host=host, port=port)
 
     statistics_thread = threading.Thread(target=print_stats, args=(tb,))
     statistics_thread.setDaemon(True)
